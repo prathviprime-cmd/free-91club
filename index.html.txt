@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>91 Club फ्री क्लोन</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #1a1a1a; color: white; text-align: center; padding: 20px; }
+        .card { background: #2a2a2a; padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 400px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .timer { font-size: 32px; color: #ffeb3b; font-weight: bold; margin: 10px 0; }
+        .btn { padding: 12px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; font-weight: bold; }
+        .btn-green { background: #4caf50; color: white; }
+        .btn-red { background: #f44336; color: white; }
+        .btn-violet { background: #9c27b0; color: white; }
+        .wallet { font-size: 20px; color: #4caf50; }
+    </style>
+</head>
+<body>
+
+    <h1>91 Club Clone (Free)</h1>
+    
+    <div class="card">
+        <div class="wallet">वॉलेट बैलेंस: ₹<span id="balance">100.00</span></div>
+    </div>
+
+    <div class="card">
+        <h3>Wingo 1 मिनट गेम</h3>
+        <div class="timer">00:<span id="seconds">60</span></div>
+        <p>अपना रंग चुनें:</p>
+        <button class="btn btn-green" onclick="placeBet('Green')">हरा (Green)</button>
+        <button class="btn btn-violet" onclick="placeBet('Violet')">बैंगनी (Violet)</button>
+        <button class="btn btn-red" onclick="placeBet('Red')">लाल (Red)</button>
+    </div>
+
+    <div class="card">
+        <h4>पिछला रिजल्ट (History):</h4>
+        <div id="history">-</div>
+    </div>
+
+    <script>
+        let timeLeft = 60;
+        let balance = 100;
+
+        setInterval(() => {
+            if(timeLeft <= 0) {
+                timeLeft = 60;
+                declareWinner();
+            }
+            timeLeft--;
+            document.getElementById('seconds').innerText = timeLeft < 10 ? '0' + timeLeft : timeLeft;
+        }, 1000);
+
+        function placeBet(color) {
+            alert(color + " पर आपकी बेट लग गई है!");
+        }
+
+        function declareWinner() {
+            const colors = ['Green', 'Red', 'Violet'];
+            const winningColor = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById('history').innerHTML += ` | <span style="color:${winningColor}">${winningColor}</span>`;
+            alert("गेम ओवर! इस बार का विजेता रंग है: " + winningColor);
+        }
+    </script>
+</body>
+</html>

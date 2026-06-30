@@ -1,0 +1,12 @@
+{
+  "name": "free-91club-clone",
+  "version": "1.0.0",
+  "description": "Free Color Prediction Game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
