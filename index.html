@@ -3,63 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>91 Club फ्री क्लोन</title>
+    <title>MY CUSTOM CLUB</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #1a1a1a; color: white; text-align: center; padding: 20px; }
-        .card { background: #2a2a2a; padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 400px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        .timer { font-size: 32px; color: #ffeb3b; font-weight: bold; margin: 10px 0; }
-        .btn { padding: 12px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; font-weight: bold; }
-        .btn-green { background: #4caf50; color: white; }
-        .btn-red { background: #f44336; color: white; }
-        .btn-violet { background: #9c27b0; color: white; }
-        .wallet { font-size: 20px; color: #4caf50; }
+        /* कस्टम कलर थीम (पर्पल और गोल्ड मिक्स - 91 क्लब से अलग) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .app-container {
+            width: 100%;
+            max-width: 450px;
+            background-color: #1a1a1a;
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 80px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+        .header {
+            background: linear-gradient(180deg, #6c5ce7, #4834d4);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .page-section {
+            display: none;
+            padding: 15px;
+        }
+        .page-section.active {
+            display: block;
+        }
+        /* वॉलेट सेक्शन */
+        .wallet-card {
+            background: #2d3436;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-dep { background-color: #00b894; color: white; }
+        .btn-wit { background-color: #e17055; color: white; }
+        
+        /* QR इमेज डिस्प्ले */
+        .qr-box {
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: none;
+            color: #000;
+        }
+        .qr-box img {
+            width: 200px;
+            height: auto;
+        }
+
+        /* बॉटम नेविगेशन */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 450px;
+            background-color: #222;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #333;
+        }
+        .nav-item {
+            text-align: center;
+            color: #aaa;
+            font-size: 11px;
+            cursor: pointer;
+            flex: 1;
+        }
+        .nav-item.active {
+            color: #6c5ce7;
+            font-weight: bold;
+        }
+        .nav-icon { font-size: 18px; margin-bottom: 2px; }
+
+        /* एडमिन लॉगिन पैनल */
+        .admin-box {
+            background: #222;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border: 1px dashed #6c5ce7;
+        }
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
 
-    <h1>91 Club Clone (Free)</h1>
-    
-    <div class="card">
-        <div class="wallet">वॉलेट बैलेंस: ₹<span id="balance">100.00</span></div>
+<div class="app-container">
+    <div class="header" id="app-title">MY CUSTOM CLUB</div>
+
+    <!-- HOME PAGE -->
+    <div id="Home" class="page-section active">
+        <div class="wallet-card">
+            <div>Main Balance</div>
+            <h2>₹100.00</h2>
+            <div class="btn-group">
+                <button class="btn btn-dep" onclick="showDeposit()">Deposit</button>
+                <button class="btn btn-wit" onclick="alert('Withdraw Request Mock')">Withdraw</button>
+            </div>
+        </div>
+        
+        <!-- डिपॉजिट करने पर दिखने वाला QR बॉक्स -->
+        <div id="deposit-qr" class="qr-box">
+            <h3>Scan & Pay to Deposit</h3>
+            <p>UPI ID: 9174486332@fam</p>
+            <!-- यहाँ आप अपनी इमेज का लिंक डाल सकते हैं -->
+            <div style="border: 2px solid #ccc; padding: 10px; font-weight: bold; color: #555;">[QR Code Image Area]</div>
+            <p style="font-size: 12px; color: red; margin-top: 5px;">भुगतान के बाद एडमिन यूज़र बैलेंस को मैन्युअली अपडेट कर सकता है।</p>
+        </div>
+
+        <h3>Available Games</h3>
+        <p>Wingo 1 Min, Slots, Wheel of Fortune (UI Placeholders)</p>
     </div>
 
-    <div class="card">
-        <h3>Wingo 1 मिनट गेम</h3>
-        <div class="timer">00:<span id="seconds">60</span></div>
-        <p>अपना रंग चुनें:</p>
-        <button class="btn btn-green" onclick="placeBet('Green')">हरा (Green)</button>
-        <button class="btn btn-violet" onclick="placeBet('Violet')">बैंगनी (Violet)</button>
-        <button class="btn btn-red" onclick="placeBet('Red')">लाल (Red)</button>
+    <!-- ACTIVITY PAGE -->
+    <div id="Activity" class="page-section">
+        <h3>Activity Rewards</h3>
+        <p>Daily Check-in Tasks and Bonuses appear here.</p>
     </div>
 
-    <div class="card">
-        <h4>पिछला रिजल्ट (History):</h4>
-        <div id="history">-</div>
+    <!-- GET 500 PAGE -->
+    <div id="Get500" class="page-section">
+        <h3>Get ₹500 Bonus</h3>
+        <p>Invite friends to complete tasks and earn a flat ₹500 reward.</p>
     </div>
 
-    <script>
-        let timeLeft = 60;
-        let balance = 100;
+    <!-- PROMOTION PAGE -->
+    <div id="Promotion" class="page-section">
+        <h3>Promotion Center</h3>
+        <p>Your Referral Link: <span style="color:#6c5ce7;">://customclub.com</span></p>
+    </div>
 
-        setInterval(() => {
-            if(timeLeft <= 0) {
-                timeLeft = 60;
-                declareWinner();
-            }
-            timeLeft--;
-            document.getElementById('seconds').innerText = timeLeft < 10 ? '0' + timeLeft : timeLeft;
-        }, 1000);
+    <!-- ACCOUNT PAGE -->
+    <div id="Account" class="page-section">
+        <h3>My Profile</h3>
+        <div class="wallet-card">
+            <p>User ID: uid_884729</p>
+            <p>Mobile: 917448XXXX</p>
+        </div>
 
-        function placeBet(color) {
-            alert(color + " पर आपकी बेट लग गई है!");
+        <!-- सुरक्षित एडमिन सेक्शन -->
+        <div class="admin-box">
+            <h4>Admin Control Panel</h4>
+            <div id="admin-login-form">
+                <input type="password" id="admin-pass" class="input-field" placeholder="Enter Admin Password">
+                <button class="btn btn-dep" onclick="checkAdminPassword()">Login to Admin</button>
+            </div>
+            <div id="admin-controls" style="display:none;">
+                <p style="color:#00b894;">✓ Access Granted</p>
+                <label>Change App Name:</label>
+                <input type="text" id="new-name" class="input-field" placeholder="New App Name">
+                <button class="btn btn-wit" onclick="updateAppName()">Update Name</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <div class="bottom-nav">
+        <div class="nav-item active" onclick="switchPage('Home', this)">
+            <div class="nav-icon">🏠</div><div>Home</div>
+        </div>
+        <div class="nav-item" onclick="switchPage('Activity', this)">
+            <div class="nav-icon">📅</div><div>Activity</div>
+        </div>
+        <div class="nav-item" onclick="switchPage('Get500', this)">
+            <div class="nav-icon">🎁</div><div>Get ₹500</div>
+        </div>
+        <div class="nav-item" onclick="switchPage('Promotion', this)">
+            <div class="nav-icon">📢</div><div>Promotion</div>
+        </div>
+        <div class="nav-item" onclick="switchPage('Account', this)">
+            <div class="nav-icon">👤</div><div>Account</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchPage(pageId, element) {
+        // सभी सेक्शन्स छुपाएं
+        document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+        // चुने हुए सेक्शन को दिखाएं
+        document.getElementById(pageId).classList.add('active');
+        
+        // एक्टिव नेविगेशन बटन का कलर बदलें
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+        element.classList.add('active');
+    }
+
+    function showDeposit() {
+        var qrBox = document.getElementById('deposit-qr');
+        qrBox.style.display = (qrBox.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function checkAdminPassword() {
+        var pass = document.getElementById('admin-pass').value;
+        // डिफ़ॉल्ट डेमो पासवर्ड 'admin123' है
+        if(pass === 'admin123') {
+            document.getElementById('admin-login-form').style.display = 'none';
+            document.getElementById('admin-controls').style.display = 'block';
+        } else {
+            alert('गलत पासवर्ड! कृपया दोबारा प्रयास करें।');
         }
+    }
 
-        function declareWinner() {
-            const colors = ['Green', 'Red', 'Violet'];
-            const winningColor = colors[Math.floor(Math.random() * colors.length)];
-            document.getElementById('history').innerHTML += ` | <span style="color:${winningColor}">${winningColor}</span>`;
-            alert("गेम ओवर! इस बार का विजेता रंग है: " + winningColor);
+    function updateAppName() {
+        var name = document.getElementById('new-name').value;
+        if(name.trim() !== "") {
+            document.getElementById('app-title').innerText = name;
+            alert('ऐप का नाम सफलतापूर्वक बदल गया है!');
         }
-    </script>
+    }
+</script>
+
 </body>
 </html>
